@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/javascript">
+      var h1 = React.createElement('h1', null, 'Hello world!')
+      ReactDOM.render(
+        React.createElement('div', null, h1, h1),
+        document.getElementById('content')
+      )
+      
+        let h11 = React.createElement('h1', null, 'Hello class!')
+        class HelloWorld extends React.Component {
+        render() {
+            return React.createElement('div', null, h11, h11)
+        }
+        }
+        ReactDOM.render(
+        React.createElement(HelloWorld, null),
+        document.getElementById('content')
+        )
+
+        class HelloWorld1 extends React.Component {
+            render() {
+                return React.createElement(
+                'h1',
+                this.props,
+                'Hello ' + this.props.frameworkName + ' world!'
+                )
+            }
+        }
+
+        ReactDOM.render(
+            React.createElement(
+                'div',
+                null,
+                React.createElement(HelloWorld1, {
+                id: 'ember',
+                frameworkName: 'Ember.js',
+                title: 'A framework for creating ambitious web applications.'}),
+                React.createElement(HelloWorld1, {
+                id: 'backbone',
+                frameworkName: 'Backbone.js',
+                title: 'Backbone.js gives structure to web applications...'}),
+                React.createElement(HelloWorld1, {
+                id: 'angular',
+                frameworkName: 'Angular.js',
+                title: 'Superheroic JavaScript MVW Framework'})
+            ),
+            document.getElementById('content')
+            )
+    </script>
+</body>
+</html>
